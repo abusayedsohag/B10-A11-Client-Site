@@ -6,7 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        mainA : "#F6F1DE",
+        mainDark : "#3E3F5B",
+        card : "#8AB2A6",
+        mainB : "#ACD3A8",
+      },
       backgroundImage: {
         'hero' : "url('https://i.ibb.co.com/35C70SBm/lost-and-found-software.webp')",
       },
