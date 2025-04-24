@@ -20,7 +20,7 @@ const Navbar = () => {
     const links = (
         <>
             <li><Link>Home</Link></li>
-            <li><Link to="/additems">Lost & Found</Link></li>
+            <li><Link to="/listitems">Lost & Found</Link></li>
         </>
     )
 
@@ -47,54 +47,55 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {
-                        user ? (
-                            <div className='w-full'>
-                                {
-                                    <div className='flex justify-end'>
-                                        <h1 className="group relative flex h-6 w-6 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-500
-                                                hover:w-full">
-                                            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-green-500 opacity-0 transition duration-500 group-hover:opacity-100 dark:from-blue-700 dark:to-green-600"></span>
-                                            <span className="text-black text-xl transition-transform duration-300 group-hover:scale-0">
-                                                {
-                                                    user.photoURL && !isImageError ?
+                    <div className="dropdown dropdown-end">
+                        {
+                            user ?
+                                <div>
+                                    <div tabIndex={0} role="button" className="btn btn-xs md:btn-md btn-ghost btn-circle avatar">
+                                        <div className="w-6 md:w-10 rounded-full">
+                                            {
+                                                user.photoURL && !isImageError ?
+                                                    <div>
+                                                        <img className='rounded-full h-6 md:h-10'
+                                                            src={user.photoURL}
+                                                            onError={() => setIsImageError(true)}
+                                                        />
+                                                    </div>
+                                                    :
+                                                    <div>
                                                         <div>
-                                                            <img className='rounded-full h-6 sm:h-10'
-                                                                src={user.photoURL}
-                                                                onError={() => setIsImageError(true)}
-                                                            />
+                                                            <svg
+                                                                className='w-6'
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 448 512"
+                                                            ><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
                                                         </div>
-                                                        :
-                                                        <div>
-                                                            <div>
-                                                                <svg
-                                                                    className='w-6'
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    viewBox="0 0 448 512"
-                                                                ><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
-                                                            </div>
-                                                        </div>
-                                                }
-                                            </span>
-
-                                            <span className="absolute scale-0 text-white transition-transform duration-500 group-hover:scale-100 hover:opacity-100 w-full">
-                                                <div className='w-full flex justify-between items-center'>
-                                                    <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName?.split(' ').slice(0, 2).join(' ')}</h1>
-                                                    <button onClick={() => logOutUser()} className='btn btn-xs rounded-e-full md:btn md:rounded-e-full'>Log Out</button>
-                                                </div>
-                                            </span>
-                                        </h1>
+                                                    </div>
+                                            }
+                                        </div>
                                     </div>
-                                }
-                            </div>
-                        ) : (
-                            <div className='navbar-end gap-1'>
-                                <div className="">
-                                    <Link to='/login'><h1 className="btn btn-xs md:btn dark:bg-slate-800 dark:text-white">Login</h1></Link>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                        <li className='bg-blue-500 rounded-md'>
+                                            <div className="justify-between">
+                                                <h1 className='text-white'>{user.displayName?.split(' ').slice(0, 2).join(' ')}</h1>
+                                                <button onClick={logOutUser} className='btn btn-xs'>Log Out</button>
+                                            </div>
+                                        </li>
+                                        <li><Link to="/additems">Add Lost & Found</Link></li>
+                                        <li><Link>All Recovered Items</Link></li>
+                                        <li><Link>Manage My Items</Link></li>
+                                    </ul>
                                 </div>
-                            </div>
-                        )
-                    }
+                                :
+                                <div>
+                                    <div className="">
+                                        <Link to='/login'><h1 className="btn btn-xs md:btn dark:bg-slate-800 dark:text-white">Login</h1></Link>
+                                    </div>
+                                </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

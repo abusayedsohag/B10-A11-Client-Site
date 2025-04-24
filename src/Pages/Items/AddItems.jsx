@@ -63,10 +63,10 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Post Type</span>
                                 </label>
-                                <select defaultValue="pickup" name='type' className="select w-full label bg-slate-700 text-white dark:border-blue-500">
-                                    <option value="pickup" className='label-text' disabled selected>Pick your Post Type</option>
-                                    <option value="Personal Issue">Lost</option>
-                                    <option value="Startup">Found</option>
+                                <select defaultValue="select" name='type' className="select w-full label bg-slate-700 text-white dark:border-blue-500">
+                                    <option value="select" className='label-text' disabled>Pick your Post Type</option>
+                                    <option value="Lost">Lost</option>
+                                    <option value="Found">Found</option>
                                 </select>
                             </div>
 
@@ -88,8 +88,8 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Category</span>
                                 </label>
-                                <select name='category' className="select label bg-slate-700 text-white border-blue-500 w-full">
-                                    <option value="Select Category" className='label-text' disabled selected>Select Category</option>
+                                <select defaultValue="Select Category" name='category' className="select label bg-slate-700 text-white border-blue-500 w-full">
+                                    <option value="Select Category" className='label-text' disabled>Select Category</option>
                                     <option value="Pets">Pets</option>
                                     <option value="Document">Document</option>
                                     <option value="Gadgets">Gadgets</option>

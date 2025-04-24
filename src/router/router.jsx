@@ -6,7 +6,8 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import AddItems from "../Pages/Items/AddItems";
-import PrivateRouter from "../router/PrivateRoute";
+import PrivateRoute from "../router/PrivateRoute";
+import ListItems from "../Pages/Items/ListItems";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/additems",
-                element: <PrivateRouter><AddItems></AddItems></PrivateRouter>,
+                element: <PrivateRoute><AddItems></AddItems></PrivateRoute>,
+            },
+            {
+                path: "/listitems",
+                element: <PrivateRoute><ListItems></ListItems></PrivateRoute>,
+                loader: async() => await fetch('http://localhost:5000/items')
             },
         ]
     },
