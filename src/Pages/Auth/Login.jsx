@@ -55,6 +55,7 @@ const Login = () => {
             .then(res => {
                 console.log(res)
                 toast.success('Login Success')
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.code)

@@ -20,7 +20,7 @@ const Navbar = () => {
     const links = (
         <>
             <li><Link>Home</Link></li>
-            <li><Link>Lost & Found</Link></li>
+            <li><Link to="/additems">Lost & Found</Link></li>
         </>
     )
 
