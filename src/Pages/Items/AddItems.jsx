@@ -88,8 +88,8 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Category</span>
                                 </label>
-                                <select defaultValue="Select Category" name='category' className="select label bg-slate-700 text-white border-blue-500 w-full">
-                                    <option value="Select Category" className='label-text' disabled>Select Category</option>
+                                <select defaultValue="Category" name='category' className="select label bg-slate-700 text-white border-blue-500 w-full">
+                                    <option value="Category" disabled>Select Category</option>
                                     <option value="Pets">Pets</option>
                                     <option value="Document">Document</option>
                                     <option value="Gadgets">Gadgets</option>
@@ -130,14 +130,14 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Host Email</span>
                                 </label>
-                                <input value={user?.email} type="text" name="hostemail" className="input input-bordered w-full bg-slate-700 text-white dark:border-blue-500" required />
+                                <input value={user?.email} type="text" name="hostemail" className="input input-bordered w-full bg-slate-700 text-white dark:border-blue-500" required readOnly />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Host Name</span>
                                 </label>
-                                <input value={user?.displayName} type="text" name="hostname" className="input input-bordered w-full bg-slate-700 text-white dark:border-blue-500" required />
+                                <input value={user?.displayName} type="text" name="hostname" className="input input-bordered w-full bg-slate-700 text-white dark:border-blue-500" required readOnly />
                             </div>
 
                             <div className="form-control md:col-span-2">
