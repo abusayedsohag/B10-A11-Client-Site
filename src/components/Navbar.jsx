@@ -85,7 +85,7 @@ const Navbar = () => {
                                         </li>
                                         <li><Link to="/additems">Add Lost & Found</Link></li>
                                         <li><Link>All Recovered Items</Link></li>
-                                        <li><Link>Manage My Items</Link></li>
+                                        <li><Link to="/myitems">Manage My Items</Link></li>
                                     </ul>
                                 </div>
                                 :

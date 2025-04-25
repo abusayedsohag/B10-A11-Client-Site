@@ -8,6 +8,8 @@ import Register from "../Pages/Auth/Register";
 import AddItems from "../Pages/Items/AddItems";
 import PrivateRoute from "../router/PrivateRoute";
 import ListItems from "../Pages/Items/ListItems";
+import MyItems from "../Pages/Items/MyItems";
+import UpdateItem from "../Pages/Items/UpdateItem";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +36,16 @@ const router = createBrowserRouter([
             {
                 path: "/listitems",
                 element: <PrivateRoute><ListItems></ListItems></PrivateRoute>,
-                loader: async() => await fetch('http://localhost:5000/items')
+                loader: async () => await fetch('http://localhost:5000/items')
+            },
+            {
+                path: "/myitems",
+                element: <PrivateRoute><MyItems></MyItems></PrivateRoute>,
+            },
+            {
+                path: "/updateitem/:id",
+                element: <PrivateRoute><UpdateItem></UpdateItem></PrivateRoute>,
+                loader:  ({params}) => fetch(`http://localhost:5000/host_items/${params.id}`)
             },
         ]
     },
