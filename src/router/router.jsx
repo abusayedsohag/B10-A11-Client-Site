@@ -10,6 +10,7 @@ import PrivateRoute from "../router/PrivateRoute";
 import ListItems from "../Pages/Items/ListItems";
 import MyItems from "../Pages/Items/MyItems";
 import UpdateItem from "../Pages/Items/UpdateItem";
+import RecoverItems from "../Pages/Items/RecoverItems";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/item')
             },
             {
                 path: "/login",
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
                 path: "/updateitem/:id",
                 element: <PrivateRoute><UpdateItem></UpdateItem></PrivateRoute>,
                 loader:  ({params}) => fetch(`http://localhost:5000/host_items/${params.id}`)
+            },
+            {
+                path: "/recoveritems",
+                element: <PrivateRoute><RecoverItems></RecoverItems></PrivateRoute>,
             },
         ]
     },

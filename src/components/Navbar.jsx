@@ -52,7 +52,7 @@ const Navbar = () => {
                             user ?
                                 <div>
                                     <div tabIndex={0} role="button" className="btn btn-xs md:btn-md btn-ghost btn-circle avatar">
-                                        <div className="w-6 md:w-10 rounded-full">
+                                        <div className="w-6 md:w-10 rounded-full flex justify-center items-center bg-white">
                                             {
                                                 user.photoURL && !isImageError ?
                                                     <div>
@@ -62,14 +62,12 @@ const Navbar = () => {
                                                         />
                                                     </div>
                                                     :
-                                                    <div>
-                                                        <div>
-                                                            <svg
-                                                                className='w-6'
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 448 512"
-                                                            ><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
-                                                        </div>
+                                                    <div className='h-6 md:h-10 flex justify-center items-center'>
+                                                        <svg
+                                                            className='w-6'
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 448 512"
+                                                        ><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
                                                     </div>
                                             }
                                         </div>
@@ -84,7 +82,7 @@ const Navbar = () => {
                                             </div>
                                         </li>
                                         <li><Link to="/additems">Add Lost & Found</Link></li>
-                                        <li><Link>All Recovered Items</Link></li>
+                                        <li><Link to="/recoveritems">All Recovered Items</Link></li>
                                         <li><Link to="/myitems">Manage My Items</Link></li>
                                     </ul>
                                 </div>

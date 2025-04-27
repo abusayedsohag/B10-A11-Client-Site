@@ -2,11 +2,12 @@ import React from 'react';
 
 const CardItems = ({data}) => {
     return (
-        <div className="card bg-base-100 shadow-sm">
-            <figure>
+        <div className="card bg-base-100 shadow-sm h-[400px]">
+            <figure className='h-2/5'>
                 <img
                     src={data.image}
-                    alt="Shoes" />
+                    alt="Shoes"
+                    className='w-full' />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{data.title}</h2>

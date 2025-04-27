@@ -24,10 +24,12 @@ const AddItems = () => {
         const hostemail = form.hostemail.value;
         const hostname = form.hostname.value;
         const description = form.description.value;
+        const createAt = new Date();
+        const createdate = createAt.toLocaleDateString('en-GB');
+        const createtime = createAt.toLocaleTimeString('en-GB');
+        const createdateTime = `${createdate} ${createtime}`;
 
-        const newPost = { type, image, title, category, location, date, hostemail, hostname, description }
-
-        console.log(newPost)
+        const newPost = { type, image, title, category, location, date, hostemail, hostname, description, createdateTime }
 
         fetch('http://localhost:5000/items', {
             method: "POST",
@@ -63,8 +65,8 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Post Type</span>
                                 </label>
-                                <select defaultValue="select" name='type' className="select w-full label bg-slate-700 text-white dark:border-blue-500">
-                                    <option value="select" className='label-text' disabled>Pick your Post Type</option>
+                                <select defaultValue="" name='type' className="select w-full label bg-slate-700 text-white dark:border-blue-500" required >
+                                    <option value="" className='label-text' disabled>Pick your Post Type</option>
                                     <option value="Lost">Lost</option>
                                     <option value="Found">Found</option>
                                 </select>
@@ -88,8 +90,8 @@ const AddItems = () => {
                                 <label className="label">
                                     <span className="label-text">Category</span>
                                 </label>
-                                <select defaultValue="Category" name='category' className="select label bg-slate-700 text-white border-blue-500 w-full">
-                                    <option value="Category" disabled>Select Category</option>
+                                <select defaultValue="" name='category' className="select label bg-slate-700 text-white border-blue-500 w-full" required>
+                                    <option value="" disabled>Select Category</option>
                                     <option value="Pets">Pets</option>
                                     <option value="Document">Document</option>
                                     <option value="Gadgets">Gadgets</option>
@@ -122,6 +124,7 @@ const AddItems = () => {
                                         dateFormat="dd/MM/yyyy"
                                         placeholderText="Click to select a date"
                                         wrapperClassName="w-full"
+                                        maxDate={new Date()}
                                     />
                                 </div>
                             </div>
