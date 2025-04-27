@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const Cards = () => {
 
@@ -25,7 +25,7 @@ const Cards = () => {
                                 <h1 className='flex items-center gap-2 font-semibold'>Type: <span className='badge badge-sm border-black'>{card.type}</span></h1>
                                 <h1 className='flex items-center gap-2 font-semibold'>Category: <span className='badge badge-sm border-black'>{card.category}</span></h1>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">View Details</button>
+                                    <Link to={`/detailsitem/${card._id}`} className="btn btn-primary">View Details</Link>
                                 </div>
                             </div>
                         </div>
